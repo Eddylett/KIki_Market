@@ -70,3 +70,47 @@ def registrar_usuario(datos: UsuarioCrear):
         cursor.close()
         conn.close()
         raise HTTPException(status_code=400, detail=f"No se pudo crear el usuario: {str(e)}")
+
+    
+class UsuarioLogin(BaseModel):
+    usuario: str
+    contrasena: str
+
+
+@app.post("/usuarios/login")
+def login_usuario(datos: UsuarioLogin):
+    conn = obtener_conexion()
+    if not conn:
+        raise HTTPException(status_code=500, detail="Error de conexión a la Base de Datos")
+    
+    cursor = conn.cursor()
+    try:
+        # 1. Buscar si el usuario existe en la base de datos
+        query = "SELECT id_usuario, nombre, contraseñahash, rol FROM usuarios WHERE usuario = %s;"
+        cursor.execute(query, (datos.usuario,))
+        usuario_db = cursor.fetchone()
+        
+        # Si no se encuentra el usuario, arrojamos error
+        if not usuario_db:
+            raise HTTPException(status_code=401, detail="Usuario o contraseña incorrectos")
+        
+       
+        id_usuario = usuario_db[0]
+        nombre = usuario_db[1]
+        hash_guardado = usuario_db[2]
+        rol = usuario_db[3]
+        
+        
+        if not pwd_context.verify(datos.contrasena, hash_guardado):
+            raise HTTPException(status_code=401, detail="Usuario o contraseña incorrectos")
+        
+       
+        return {
+            "mensaje": "¡Ingreso exitoso a Kiki Market!",
+            "id_usuario": id_usuario,
+            "nombre": nombre,
+            "rol": rol
+        }
+    finally:
+        cursor.close()
+        conn.close()
