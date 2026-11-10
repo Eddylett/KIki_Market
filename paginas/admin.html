@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiki Market - Panel de administración</title>
+  <link rel="stylesheet" href="/static/estilos.css">
+</head>
+<body data-protegida="1">
+  <header class="topbar">
+    <div class="marca">Kiki Market</div>
+    <nav id="nav-admin" class="nav oculto"></nav>
+    <div class="sesion">
+      <span id="usuario-nombre"></span>
+      <span id="usuario-rol" class="etiqueta"></span>
+      <button id="btn-salir" class="btn btn-salir" type="button">Salir</button>
+    </div>
+  </header>
+
+  <main>
+    <h2>Resumen del local</h2>
+    <p class="aviso">Maqueta: las tarjetas muestran datos de ejemplo y se conectarán a la base de datos en la Etapa 3.</p>
+    <div class="tarjetas">
+      <div class="tarjeta t-rojo"><small>Stock crítico</small><div class="num">3</div><small>productos bajo el mínimo</small></div>
+      <div class="tarjeta t-amarillo"><small>Vencen pronto</small><div class="num">5</div><small>lotes en los próximos 7 días</small></div>
+      <div class="tarjeta t-azul"><small>Órdenes por aprobar</small><div class="num">2</div><small>esperan tu decisión</small></div>
+      <div class="tarjeta t-verde"><small>Ventas de hoy</small><div class="num">$ 128.500</div><small>42 ventas</small></div>
+    </div>
+
+    <h2>Trabajadores</h2>
+    <div class="dos-col">
+      <section class="panel">
+        <strong>Nuevo trabajador</strong>
+        <form id="form-registro" autocomplete="off">
+          <label for="reg-nombre">Nombre completo</label>
+          <input type="text" id="reg-nombre" minlength="2" maxlength="80" required>
+
+          <label for="reg-usuario">Nombre de usuario</label>
+          <input type="text" id="reg-usuario" minlength="3" maxlength="30" pattern="[a-zA-Z0-9._\-]+" title="Letras, números, punto, guion y guion bajo" required>
+
+          <label for="reg-contrasena">Contraseña (mínimo 8 caracteres)</label>
+          <input type="password" id="reg-contrasena" autocomplete="new-password" minlength="8" maxlength="72" required>
+
+          <label for="reg-rol">Rol</label>
+          <select id="reg-rol">
+            <option value="encargado_inventario">Encargado de inventario</option>
+            <option value="cajera">Cajera</option>
+          </select>
+
+          <button type="submit" id="btn-crear" class="btn btn-ok btn-ancho">Crear cuenta</button>
+          <p id="mensaje-registro" class="mensaje" role="alert"></p>
+        </form>
+      </section>
+
+      <section class="panel">
+        <strong>Equipo registrado</strong>
+        <table>
+          <thead><tr><th>Nombre</th><th>Usuario</th><th>Rol</th></tr></thead>
+          <tbody id="tabla-trabajadores"></tbody>
+        </table>
+      </section>
+    </div>
+  </main>
+
+  <script src="/static/comun.js" defer></script>
+  <script src="/static/admin.js" defer></script>
+</body>
+</html>

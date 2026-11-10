@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiki Market - Caja</title>
+  <link rel="stylesheet" href="/static/estilos.css">
+</head>
+<body data-protegida="1">
+  <header class="topbar">
+    <div class="marca">Kiki Market · Caja</div>
+    <nav id="nav-admin" class="nav oculto"></nav>
+    <div class="sesion">
+      <span id="usuario-nombre"></span>
+      <span id="usuario-rol" class="etiqueta"></span>
+      <button id="btn-salir" class="btn btn-salir" type="button">Salir</button>
+    </div>
+  </header>
+
+  <main>
+    <p class="aviso">Maqueta: el escaneo con cámara, la búsqueda y el cobro se implementan en la Etapa 3.</p>
+
+    <div class="pos">
+      <section class="panel">
+        <div class="fila-busqueda">
+          <input type="text" placeholder="Buscar producto por nombre o categoría" disabled aria-label="Buscar producto">
+          <button class="btn btn-ok" type="button" disabled title="Disponible en la Etapa 3">Escanear</button>
+        </div>
+
+        <table>
+          <thead><tr><th>Producto</th><th>Cant.</th><th>Precio</th><th>Subtotal</th></tr></thead>
+          <tbody>
+            <tr><td>Pan hallulla</td><td>4</td><td>$ 250</td><td>$ 1.000</td></tr>
+            <tr><td>Bebida cola 1,5 L</td><td>1</td><td>$ 1.890</td><td>$ 1.890</td></tr>
+            <tr><td>Huevos (bandeja)</td><td>1</td><td>$ 3.200</td><td>$ 3.200</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="panel">
+        <small>Total de la venta (ejemplo)</small>
+        <div class="total">$ 6.090</div>
+        <button class="btn btn-ok btn-grande" type="button" disabled title="Disponible en la Etapa 3">Cobrar</button>
+        <button class="btn btn-grande" type="button" disabled title="Disponible en la Etapa 3">Cancelar venta</button>
+      </section>
+    </div>
+  </main>
+
+  <script src="/static/comun.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiki Market - Ingreso</title>
+  <link rel="stylesheet" href="/static/estilos.css">
+</head>
+<body>
+  <div class="centro">
+    <form class="caja" id="form-login" autocomplete="on">
+      <h1>Kiki Market</h1>
+      <p class="sub">Ingresa con tu usuario</p>
+
+      <label for="login-usuario">Usuario</label>
+      <input type="text" id="login-usuario" autocomplete="username" maxlength="30" required>
+
+      <label for="login-contrasena">Contraseña</label>
+      <input type="password" id="login-contrasena" autocomplete="current-password" maxlength="72" required>
+
+      <button type="submit" id="btn-ingresar" class="btn btn-ok btn-ancho">Ingresar</button>
+      <p id="mensaje-login" class="mensaje" role="alert"></p>
+    </form>
+  </div>
+
+  <script src="/static/comun.js" defer></script>
+  <script src="/static/login.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiki Market - Inventario</title>
+  <link rel="stylesheet" href="/static/estilos.css">
+</head>
+<body data-protegida="1">
+  <header class="topbar">
+    <div class="marca">Kiki Market</div>
+    <nav id="nav-admin" class="nav oculto"></nav>
+    <div class="sesion">
+      <span id="usuario-nombre"></span>
+      <span id="usuario-rol" class="etiqueta"></span>
+      <button id="btn-salir" class="btn btn-salir" type="button">Salir</button>
+    </div>
+  </header>
+
+  <main>
+    <h2>Control de vencimientos</h2>
+    <p class="aviso">Maqueta: datos de ejemplo. El semáforo, las recepciones y las mermas se implementan en la Etapa 3.</p>
+    <div class="tarjetas">
+      <div class="tarjeta t-rojo"><small>Rojo · vence en 3 días o menos</small><div class="num">2</div></div>
+      <div class="tarjeta t-amarillo"><small>Amarillo · vence en 7 días o menos</small><div class="num">3</div></div>
+      <div class="tarjeta t-verde"><small>Verde · sin riesgo</small><div class="num">41</div></div>
+    </div>
+
+    <div class="acciones">
+      <button class="btn btn-ok" type="button" disabled title="Disponible en la Etapa 3">Registrar recepción</button>
+      <button class="btn" type="button" disabled title="Disponible en la Etapa 3">Registrar merma</button>
+      <button class="btn" type="button" disabled title="Disponible en la Etapa 3">Catálogo de productos</button>
+    </div>
+
+    <div class="dos-col">
+      <section class="panel">
+        <h2>Próximos a vencer</h2>
+        <table>
+          <thead><tr><th>Producto</th><th>Lote</th><th>Estado</th></tr></thead>
+          <tbody>
+            <tr><td>Yogurt natural 1 L</td><td>L-014</td><td><span class="chip rojo">3 días</span></td></tr>
+            <tr><td>Jamón pierna</td><td>L-009</td><td><span class="chip rojo">2 días</span></td></tr>
+            <tr><td>Postre de vainilla</td><td>L-021</td><td><span class="chip amarillo">6 días</span></td></tr>
+            <tr><td>Queso gauda</td><td>L-017</td><td><span class="chip amarillo">7 días</span></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="panel">
+        <h2>Stock crítico</h2>
+        <table>
+          <thead><tr><th>Producto</th><th>Quedan</th><th>Mínimo</th></tr></thead>
+          <tbody>
+            <tr><td>Pan hallulla</td><td>6</td><td>20</td></tr>
+            <tr><td>Bebida cola 1,5 L</td><td>4</td><td>12</td></tr>
+            <tr><td>Huevos (bandeja)</td><td>2</td><td>6</td></tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+  </main>
+
+  <script src="/static/comun.js" defer></script>
+</body>
+</html>
